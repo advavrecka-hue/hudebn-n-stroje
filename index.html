@@ -8,13 +8,16 @@
 </head>
 <body>
    
-    <nav class="sidebar">
+    <nav class="sidebar" id="mobileNav">
         <div class="menu-title">Menu</div>
         <a href="Index.html">Index</a>
         <a href="klavir.html">Klavír</a>
         <a href="kytara.html">Kytara</a>
         <a href="bici.html">Bicí</a>
     </nav>
+
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
 <header>
     <h1>Úvodní stránka</h1>
 </header>
@@ -26,6 +29,22 @@
     Hudební nástroje jsou opravdu skvělé a tato stránka slouží jako dveře do suprového světa hudby. Najdeš tu inspiraci pro hraní i pro pochopení, jak hudba dokáže ovlivnit náladu, energii a společné sdílení.
 </p>
 </main>
+
+<script>
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    
+    menuToggle.addEventListener('click', function() {
+        mobileNav.classList.toggle('active');
+    });
+
+    const navLinks = mobileNav.querySelectorAll('a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            mobileNav.classList.remove('active');
+        });
+    });
+</script>
 
 </body>
 </html>

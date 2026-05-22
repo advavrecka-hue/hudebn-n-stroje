@@ -7,12 +7,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
+    <nav id="mobileNav">
+        <div class="menu-title">Menu</div>
         <a href="Index.html">Index</a>
-        <a href="klavir.html">klavir</a>
-        <a href="kytara.html">kytara</a>
-        <a href="bici.html">bici</a>
+        <a href="klavir.html">Klavír</a>
+        <a href="kytara.html">Kytara</a>
+        <a href="bici.html">Bicí</a>
     </nav>
+
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
     <section id="drums">
         <header>
     <h2>Bicí</h2>
@@ -27,9 +31,23 @@
 </section>
 
 <script>
-document.getElementById("drumButton").addEventListener("click", function() {
-    alert("BUM! TSS! BUM BUM!");
-});
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    
+    menuToggle.addEventListener('click', function() {
+        mobileNav.classList.toggle('active');
+    });
+
+    const navLinks = mobileNav.querySelectorAll('a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            mobileNav.classList.remove('active');
+        });
+    });
+
+    document.getElementById("drumButton").addEventListener("click", function() {
+        alert("BUM! TSS! BUM BUM!");
+    });
 </script>
 </body>
 </html>
